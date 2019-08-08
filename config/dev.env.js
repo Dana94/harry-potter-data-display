@@ -5,6 +5,5 @@ const KEY = require('./.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  //VUE_APP_KEY: '"key"'
-  VUE_APP_KEY: KEY.KEY
+  VUE_APP_KEY: KEY.API_KEY
 })
