@@ -9,7 +9,7 @@ Create an account at [Potter API](https://www.potterapi.com/) to receive an API 
 You need to create a `.env.js` file in the `/config` folder for the key to go.
 
 Use this code sample for the file, replacing `SUPER_SECRET_KEY` with your own key. Keep both quotation marks around your key.
-```
+```javascript
 'use strict'
 module.exports = {
   API_KEY: '"SUPER_SECRET_KEY"'
