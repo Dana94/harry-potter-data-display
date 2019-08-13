@@ -1,5 +1,5 @@
 <template>
-  <div id="bar-chart">{{this.houses}}</div>
+  <div id="bar-chart">{{people}}</div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     setUp() {
-      console.log('here', this.members)
+      //console.log('here', this.members)
       d3.select("body")
         .append("h1")
         .text("Harry Potter Data");
@@ -48,9 +48,15 @@ export default {
       .text(d => d)
 
     },
-    countMembers(){
-      this.members = this.houses.map(house => house.members.length);
-      this.setUp();
+    // countMembers(){
+    //   this.members = this.houses.map(house => house.members.length);
+    //   this.setUp();
+    // }
+  },
+  computed: {
+    people(){
+      //this.members = this.houses.map(house => house.members.length);
+      return this.houses.map(house => house.members.length);
     }
   },
   created() {
