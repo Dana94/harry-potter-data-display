@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <bar-chart :houses="houses"></bar-chart>
-    <!-- {{houses}} -->
   </div>
 </template>
 
@@ -14,8 +13,6 @@ export default {
   data() {
     return {
       houses: [],
-      people: [],
-      //data: [2,2,2,2]
     };
   },
   methods: {
@@ -25,18 +22,6 @@ export default {
         .get("/houses?key=" + process.env.VUE_APP_KEY)
         .then(function(response) {
           vm.houses = response.data;
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-    getPeople(){
-      let vm = this;
-      axios
-        .get("/characters?key=" + process.env.VUE_APP_KEY)
-        .then(function(response) {
-          vm.people = response.data;
-          console.log(vm.people.length)
         })
         .catch(function(error) {
           console.log(error);

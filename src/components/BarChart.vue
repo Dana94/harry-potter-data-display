@@ -1,5 +1,5 @@
 <template>
-  <div id="bar-chart">{{houses}}</div>
+  <div id="bar-chart">{{this.houses}}</div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   props: ['houses'],
   data() {
     return {
-      members: [], // 40, 17, 25, 17
+      members: [], // 40, 17, 25, 17,
     };
   },
   methods: {
@@ -54,6 +54,7 @@ export default {
     }
   },
   created() {
+    //this.members = this.houses.map(house => house.members.length);
     //this.setUp();
   }
 };
