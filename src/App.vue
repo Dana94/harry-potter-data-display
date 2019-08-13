@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <bar-chart></bar-chart>
+    <bar-chart :houses="houses"></bar-chart>
+    <!-- {{houses}} -->
   </div>
 </template>
 
@@ -13,7 +14,8 @@ export default {
   data() {
     return {
       houses: [],
-      people: []
+      people: [],
+      //data: [2,2,2,2]
     };
   },
   methods: {
@@ -42,7 +44,7 @@ export default {
     }
   },
   created() {
-    // this.getPeople()
+    this.getHouses()
   },
   components: {
     BarChart
