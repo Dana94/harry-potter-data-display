@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <p v-for="house in houses" :key="house">{{house.name}}</p>
+    <bar-chart :houses="houses"></bar-chart>
   </div>
 </template>
 
 <script>
 import axios from "./axios-auth";
+import BarChart from './components/BarChart.vue';
+
 export default {
   name: "App",
   data() {
     return {
-      houses: []
+      houses: [],
     };
   },
   methods: {
@@ -28,6 +30,9 @@ export default {
   },
   created() {
     this.getHouses()
+  },
+  components: {
+    BarChart
   }
 };
 </script>
