@@ -5,34 +5,15 @@
 </template>
 
 <script>
-import axios from "./axios-auth";
 import BarChart from "./components/BarChart.vue";
 
 export default {
   name: "App",
   data() {
-    return {
-    };
+    return {};
   },
-  methods: {
-    getHouses() {
-      let vm = this;
-      axios
-        .get("/houses?key=" + process.env.VUE_APP_KEY)
-        .then(function(response) {
-          vm.houses = response.data;
-          vm.$store.dispatch('addMembers', {
-            members: vm.houses.map(house => house.members.length)
-          })
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    }
-  },
-  created() {
-    this.getHouses();
-  },
+  methods: {},
+  created() {},
   components: {
     BarChart
   }
