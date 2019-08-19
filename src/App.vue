@@ -1,36 +1,19 @@
 <template>
   <div id="app">
-    <bar-chart :houses="houses"></bar-chart>
+    <bar-chart></bar-chart>
   </div>
 </template>
 
 <script>
-import axios from "./axios-auth";
-import BarChart from './components/BarChart.vue';
+import BarChart from "./components/BarChart.vue";
 
 export default {
   name: "App",
   data() {
-    return {
-      houses: [],
-    };
+    return {};
   },
-  methods: {
-    getHouses() {
-      let vm = this;
-      axios
-        .get("/houses?key=" + process.env.VUE_APP_KEY)
-        .then(function(response) {
-          vm.houses = response.data;
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    }
-  },
-  created() {
-    this.getHouses()
-  },
+  methods: {},
+  created() {},
   components: {
     BarChart
   }
