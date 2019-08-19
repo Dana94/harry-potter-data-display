@@ -12,7 +12,7 @@ export default {
   props: ['people'],
   data() {
     return {
-      //people: this.$store.state.members // 40, 17, 25, 17,
+      //people: [40, 17, 25, 17]
     };
   },
   methods: {
@@ -52,12 +52,16 @@ export default {
         .text(d => d);
     }
   },
+  watch: {
+    people() {
+      this.setUp();
+    }
+  },
   created() {
-    //this.setUp();
   },
   mounted() {
     //this.$store.dispatch("LOAD_MEMBERS");
-    this.setUp();
+    //this.setUp();
   }
 };
 </script>

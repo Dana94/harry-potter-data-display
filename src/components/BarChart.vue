@@ -13,7 +13,6 @@ export default {
   name: "BarChart",
   data() {
     return {
-      //people: this.$store.state.members // 40, 17, 25, 17,
     };
   },
   methods: {},
