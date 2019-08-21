@@ -1,6 +1,5 @@
 <template>
   <div id="chart">
-    <p>people: {{people}}</p>
   </div>
 </template>
 
@@ -12,7 +11,6 @@ export default {
   props: ['people'],
   data() {
     return {
-      //people: [40, 17, 25, 17]
     };
   },
   methods: {
@@ -27,48 +25,42 @@ export default {
         .append("svg")
         .attr("width", "400")
         .attr("height", "200");
-
+      // bars
       svg
         .selectAll("rect")
         .data(this.people)
         .enter()
         .append("rect")
-        .attr("x", (d, i) => i * 30)
-        .attr("y", (d, i) => 200 - 3 * d)
-        .attr("width", 25)
-        .attr("height", d => d * 3)
+        .attr("x", 30)
+        .attr("y", (d, i) => i * 30)
+        .attr("width", d => d * 10)
+        .attr("height", 25)
         .attr("fill", "navy")
         .attr("class", "bar")
         .append("title")
         .text(d => d);
-
-      svg
-        .selectAll("text")
-        .data(this.people)
-        .enter()
-        .append("text")
-        .attr("x", (d, i) => i * 30)
-        .attr("y", (d, i) => 200 - 3 * d - 3)
-        .text(d => d);
+      // numbers
+      // svg
+      //   .selectAll("text")
+      //   .data(this.people)
+      //   .enter()
+      //   .append("text")
+      //   .attr("x", (d, i) => i * 30)
+      //   .attr("y", (d, i) => 200 - 3 * d - 3)
+      //   .text(d => d);
     }
   },
   watch: {
     people() {
       this.setUp();
     }
-  },
-  created() {
-  },
-  mounted() {
-    //this.$store.dispatch("LOAD_MEMBERS");
-    //this.setUp();
   }
 };
 </script>
 
 <style>
 .bar {
-  width: 25px;
+  /* width: 25px; */
   display: inline-block;
   background-color: blue;
 }

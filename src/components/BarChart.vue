@@ -1,6 +1,5 @@
 <template>
   <div id="bar-chart">
-    <p>members: {{members}}</p>
     <svg-cp :people="members" />
   </div>
 </template>
