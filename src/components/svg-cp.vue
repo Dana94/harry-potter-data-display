@@ -16,15 +16,15 @@ export default {
   methods: {
     setUp() {
       console.log('p', this.people)
-      d3.select("body")
-        .append("h1")
-        .text("Harry Potter Data");
+      // d3.select("body")
+      //   .append("h1")
+      //   .text("Harry Potter Data");
       // svg container
       const svg = d3
         .select("body")
         .append("svg")
         .attr("width", "400")
-        .attr("height", "200");
+        .attr("height", "400");
       // bars
       svg
         .selectAll("rect")
@@ -32,10 +32,10 @@ export default {
         .enter()
         .append("rect")
         .attr("x", 30)
-        .attr("y", (d, i) => i * 30)
+        .attr("y", (d, i) => i * 100)
         .attr("width", d => d * 10)
-        .attr("height", 25)
-        .attr("fill", "navy")
+        .attr("height", 70)
+        //.attr("fill", "navy")
         .attr("class", "bar")
         .append("title")
         .text(d => d);
@@ -58,10 +58,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .bar {
   /* width: 25px; */
   display: inline-block;
-  background-color: blue;
+  fill: blue;
 }
 </style>
