@@ -1,6 +1,6 @@
 <template>
   <div id="bar-chart">
-    <svg-cp :people="members" />
+    <svg-cp :houses="houses" />
   </div>
 </template>
 
@@ -16,15 +16,18 @@ export default {
   },
   methods: {},
   computed: {
-    members() {
-      return this.$store.getters.getMembers;
+    // members() {
+    //   return this.$store.getters.getMembers;
+    // },
+    houses() {
+      return this.$store.getters.getHouses;
     }
   },
   components: {
     svgCp
   },
   mounted() {
-    this.$store.dispatch("LOAD_MEMBERS");
+    this.$store.dispatch("LOAD_HOUSE_DATA");
   }
 };
 </script>

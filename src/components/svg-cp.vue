@@ -8,14 +8,13 @@ import * as d3 from "d3";
 // get number of members of each house in a bar graph
 export default {
   name: "BarChart",
-  props: ['people'],
+  props: ['houses'],
   data() {
     return {
     };
   },
   methods: {
     setUp() {
-      console.log('p', this.people)
       // d3.select("body")
       //   .append("h1")
       //   .text("Harry Potter Data");
@@ -28,17 +27,25 @@ export default {
       // bars
       svg
         .selectAll("rect")
-        .data(this.people)
+        .data(this.houses)
         .enter()
         .append("rect")
+        .data((d,i) => {
+          console.log(d)
+          return d.members
+        })
+        .enter()
         .attr("x", 30)
         .attr("y", (d, i) => i * 100)
-        .attr("width", d => d * 10)
+        .attr("width", d => d * 10) // value time
         .attr("height", 70)
-        //.attr("fill", "navy")
+        //.attr("fill", "navy") // color time
         .attr("class", "bar")
         .append("title")
         .text(d => d);
+
+
+
       // numbers
       // svg
       //   .selectAll("text")
@@ -51,7 +58,7 @@ export default {
     }
   },
   watch: {
-    people() {
+    houses() {
       this.setUp();
     }
   }
@@ -59,9 +66,5 @@ export default {
 </script>
 
 <style lang="scss">
-.bar {
-  /* width: 25px; */
-  display: inline-block;
-  fill: blue;
-}
+@import '@/assets/base.scss';
 </style>
