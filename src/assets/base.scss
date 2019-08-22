@@ -1,0 +1,31 @@
+// Gryffindor colors
+$scarlet: #EE0D0D;
+$gold: #FFD700;
+
+// Ravenclaw colors
+$blue: #0000FF;
+$bronze: #cd7f32;
+
+// Slytherin colors
+$green: #008000;
+$silver: #C0C0C0;
+
+// Hufflepuff colors
+$yellow: #ffff19;
+$black: #000000;
+
+.gryffindor {
+  fill: $scarlet;
+}
+
+.ravenclaw {
+  fill: $blue;
+}
+
+.slytherin {
+  fill: $green;
+}
+
+.hufflepuff {
+  fill: $yellow;
+}
