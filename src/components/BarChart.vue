@@ -1,12 +1,12 @@
 <template>
   <div id="bar-chart">
-    <svg-cp :houses="houses" />
+    <svg-cmp :houses="houses" />
   </div>
 </template>
 
 <script>
 // get number of members of each house in a bar graph
-import svgCp from "./svg-cp.vue";
+import SvgCmp from "./SvgCmp.vue";
 
 export default {
   name: "BarChart",
@@ -24,7 +24,7 @@ export default {
     }
   },
   components: {
-    svgCp
+    SvgCmp
   },
   mounted() {
     this.$store.dispatch("LOAD_HOUSE_DATA");

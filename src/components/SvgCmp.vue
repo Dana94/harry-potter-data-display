@@ -1,6 +1,5 @@
 <template>
-  <div id="chart">
-  </div>
+  <div id="chart"></div>
 </template>
 
 <script>
@@ -8,43 +7,36 @@ import * as d3 from "d3";
 // get number of members of each house in a bar graph
 export default {
   name: "BarChart",
-  props: ['houses'],
+  props: ["houses"],
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     setUp() {
-      // d3.select("body")
-      //   .append("h1")
-      //   .text("Harry Potter Data");
+      d3.select("body")
+        .append("h1")
+        .text("Harry Potter Data");
+
       // svg container
       const svg = d3
         .select("body")
         .append("svg")
         .attr("width", "400")
         .attr("height", "400");
+
       // bars
       svg
         .selectAll("rect")
         .data(this.houses)
         .enter()
         .append("rect")
-        .data((d,i) => {
-          console.log(d)
-          return d.members
-        })
-        .enter()
         .attr("x", 30)
         .attr("y", (d, i) => i * 100)
-        .attr("width", d => d * 10) // value time
+        .attr("width", (d) => d.members * 10)
         .attr("height", 70)
-        //.attr("fill", "navy") // color time
-        .attr("class", "bar")
+        .attr("class", (d) => d.name.toLowerCase())
         .append("title")
         .text(d => d);
-
-
 
       // numbers
       // svg
@@ -66,5 +58,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/base.scss';
+@import "@/assets/base.scss";
 </style>
