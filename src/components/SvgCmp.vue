@@ -9,10 +9,23 @@ export default {
   name: "BarChart",
   props: ["houses"],
   data() {
-    return {};
+    return {
+      width: 600,
+      height: 600,
+      rectX: 30,
+      padding: 60
+    };
   },
   methods: {
     setUp() {
+      // axis
+      const scale = d3.scaleLinear();
+      //TODO: use max() to find the second domain value
+      scale.domain([0, 40]); // input
+      scale.range([this.padding, this.width]); // output (what you want the range of numbers to be)
+
+      const axes = d3.axisBottom(scale);
+
       d3.select("body")
         .append("h1")
         .text("Harry Potter Data");
@@ -21,8 +34,16 @@ export default {
       const svg = d3
         .select("body")
         .append("svg")
-        .attr("width", "400")
-        .attr("height", "400");
+        .attr("width", this.width)
+        .attr("height", this.height);
+
+      svg
+        .append("g")
+        .attr(
+          "transform",
+          "translate(" + (-1 * this.rectX) + "," + (this.height - 200) + ")"
+        )
+        .call(axes);
 
       // bars
       svg
@@ -30,27 +51,18 @@ export default {
         .data(this.houses)
         .enter()
         .append("rect")
-        .attr("x", 30)
+        .attr("x", this.rectX)
         .attr("y", (d, i) => i * 100)
-        .attr("width", (d) => d.members * 10)
+        .attr("width", d => d.members * 10)
         .attr("height", 70)
-        .attr("class", (d) => d.name.toLowerCase())
+        .attr("class", d => d.name.toLowerCase())
         .append("title")
         .text(d => d);
-
-      // numbers
-      // svg
-      //   .selectAll("text")
-      //   .data(this.people)
-      //   .enter()
-      //   .append("text")
-      //   .attr("x", (d, i) => i * 30)
-      //   .attr("y", (d, i) => 200 - 3 * d - 3)
-      //   .text(d => d);
     }
   },
   watch: {
     houses() {
+      // separate array for members count for domain?
       this.setUp();
     }
   }
