@@ -22,7 +22,7 @@ export default {
       const scale = d3.scaleLinear();
       //TODO: use max() to find the second domain value
       scale.domain([0, 40]); // input
-      scale.range([this.padding, this.width]); // output (what you want the range of numbers to be)
+      scale.range([0, 400]); // output (what you want the range of numbers to be)
 
       const axes = d3.axisBottom(scale);
 
@@ -36,12 +36,12 @@ export default {
         .append("svg")
         .attr("width", this.width)
         .attr("height", this.height);
-
+      // axes
       svg
         .append("g")
         .attr(
           "transform",
-          "translate(" + (-1 * this.rectX) + "," + (this.height - 200) + ")"
+          "translate(" + (this.padding - this.rectX) + "," + (this.width-200) + ")"
         )
         .call(axes);
 
