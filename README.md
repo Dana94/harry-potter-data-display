@@ -1,5 +1,7 @@
 # harry-potter-data-display
 
+:warning: As of writing this, it seems the API is down (bummer). I will still like to finish this project so I will probably take the code as a base for another project and use a more reliable API to build it. Once that repo is made, I'll link it here.
+
 > A work-in-progress. I'm using the data from the [Potter API](https://www.potterapi.com/) and [D3.js](https://d3js.org/) to try to make a cool data display with what I have to use.
 
 ## Requirements
